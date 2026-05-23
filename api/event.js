@@ -1,11 +1,13 @@
-import { initDb } from "../lib/db.js";
-import { applyCors, handleOptions } from "../lib/cors.js";
+import { initDb } from "./lib/db.js";
+import { applyCors, handleOptions } from "./lib/cors.js";
 import {
+  createEvent,
   deleteEvent,
   getEvent,
+  listEvents,
   updateEvent,
   validateEventPayload,
-} from "../lib/events.js";
+} from "./lib/events.js";
 
 export default async function handler(req, res) {
   applyCors(req, res);
