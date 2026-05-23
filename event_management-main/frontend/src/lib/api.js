@@ -18,7 +18,9 @@ async function handleResponse(res) {
       const err = await res.json().catch(() => ({}));
       throw new Error(parseApiError(err));
     }
-    throw new Error(`API error (${res.status}). Check that the backend is running.`);
+    throw new Error(
+      `API error (${res.status}). Redeploy on Vercel or check the deployment logs.`
+    );
   }
   if (res.status === 204) return null;
   if (!contentType.includes("application/json")) {

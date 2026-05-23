@@ -5,8 +5,8 @@
   "buildCommand": "npm run build --prefix event_management-main/frontend",
   "outputDirectory": "event_management-main/frontend/dist",
   "rewrites": [
-    { "source": "/api/events/:id", "destination": "/api/event?id=:id" },
-    { "source": "/events/:id", "destination": "/api/event?id=:id" },
+    { "source": "/api/events/:id", "destination": "/api/events?id=:id" },
+    { "source": "/events/:id", "destination": "/api/events?id=:id" },
     { "source": "/events", "destination": "/api/events" },
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
