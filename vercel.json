@@ -4,9 +4,5 @@
   "installCommand": "npm install && npm install --prefix event_management-main/frontend",
   "buildCommand": "npm run build --prefix event_management-main/frontend",
   "outputDirectory": "event_management-main/frontend/dist",
-  "rewrites": [
-    { "source": "/events", "destination": "/api/events" },
-    { "source": "/events/:id", "destination": "/api/events/:id" },
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
