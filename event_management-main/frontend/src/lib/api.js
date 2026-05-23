@@ -10,11 +10,18 @@ function parseApiError(err) {
 }
 
 async function handleResponse(res) {
+  const contentType = res.headers.get("content-type") || "";
   if (!res.ok) {
-    const err = await res.json().catch(() => ({}));
-    throw new Error(parseApiError(err));
+    if (contentType.includes("application/json")) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(parseApiError(err));
+    }
+    throw new Error(`API error (${res.status}). Check that the backend is running.`);
   }
   if (res.status === 204) return null;
+  if (!contentType.includes("application/json")) {
+    throw new Error("API returned non-JSON. The server may be misconfigured.");
+  }
   return res.json();
 }
 

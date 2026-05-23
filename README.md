@@ -11,7 +11,7 @@ The app lives in `event_management-main/frontend/`, not the repo root. Root `ver
 
 1. Push this repo to GitHub and import it in [Vercel](https://vercel.com).
 2. Redeploy (no need to set Root Directory manually if `vercel.json` is present).
-3. Deploy the **backend** separately (Render, Railway, etc.) — Vercel only hosts the static frontend.
-4. In Vercel → **Settings → Environment Variables**, set `VITE_API_URL` to your API base URL (e.g. `https://your-api.onrender.com`).
+3. The `/events` API runs as Vercel serverless functions in `/api` (no separate backend deploy required).
+4. Optional: set `TURSO_DATABASE_URL` and `TURSO_AUTH_TOKEN` for persistent storage; optional `VITE_API_URL` only if the API is hosted elsewhere.
 
 See [event_management-main/README.md](event_management-main/README.md) for local development.
